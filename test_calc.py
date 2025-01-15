@@ -2,7 +2,14 @@ import calc
 import unittest
 
 class CalcTest(unittest.TestCase):
+    def setUp(self):
+        print("setup")
+        # self.a = 2
+        # self.b = 1
+
     def test_add(self):
+        # result = self.a + self.b
+        # self.assertEqual(result,3)
         self.assertEqual(calc.add(2,1),3)
         """
         Test for add function in calculator
