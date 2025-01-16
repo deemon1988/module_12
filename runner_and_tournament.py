@@ -26,8 +26,6 @@ class Tournament:
         self.participants = list(participants)
 
     def start(self):
-        # uchasniki_1 = {f'{str(v)}' for v in self.participants}
-        # print(f'Uchasniki: {uchasniki_1}')
         finishers = {}
         place = 1
         while self.participants:
@@ -38,7 +36,7 @@ class Tournament:
                     place += 1
                     self.participants.remove(participant)
 
-        # finish = {f'{k}: {str(v)}' for k, v in finishers.items()}
-        # print(f'Finishers: {sorted(finish)}')
-
         return finishers
+
+    def tine_sorted(self, item):
+        return item[0].run_time
