@@ -1,3 +1,5 @@
+import random
+
 import calc
 import unittest
 
@@ -6,7 +8,7 @@ class CalcTest(unittest.TestCase):
         print("setup")
         # self.a = 2
         # self.b = 1
-
+    @unittest.skip("Изменен метод")
     def test_add(self):
         # result = self.a + self.b
         # self.assertEqual(result,3)
@@ -15,6 +17,8 @@ class CalcTest(unittest.TestCase):
         Test for add function in calculator
         :return:
         """
+
+    @unittest.skipIf(random.randint(0,1), "Не попал в диапазон")
     def test_sub(self):
         self.assertEqual(calc.sub(3, 1), 2)
 

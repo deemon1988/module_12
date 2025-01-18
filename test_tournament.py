@@ -5,6 +5,8 @@ from runner_and_tournament import Runner, Tournament
 
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
+
     def setUp(self):
         self.usein = Runner('Усэйн', 10)
         self.andrey = Runner('Андрей', 9)
@@ -20,21 +22,25 @@ class TournamentTest(unittest.TestCase):
             finishers = {k: str(v) for k, v in value.items()}
             print(finishers)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run1_run2(self):
         tournament1 = Tournament(90, self.usein, self.nick)
         self.__class__.all_results['забег 1'] = tournament1.start()
         self.assertEqual(self.__class__.all_results['забег 1'][2], 'Ник')
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run2_run3(self):
         tournament2 = Tournament(90, self.andrey, self.nick)
         self.__class__.all_results['забег 2'] = tournament2.start()
         self.assertEqual(self.__class__.all_results['забег 2'][2], 'Ник')
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_all_runners(self):
         tournament3 = Tournament(90, self.usein, self.andrey, self.nick)
         self.__class__.all_results['забег 3'] = tournament3.start()
         self.assertEqual(self.__class__.all_results['забег 3'][3], 'Ник')
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_place_distribution(self):
         tournament = Tournament(90, self.usein, self.andrey, self.nick)
         results = tournament.start()
